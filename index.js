@@ -14,8 +14,7 @@ app.use(express.static("uploads"))
 app.use(cors({
     origin: process.env.NODE_ENV === "production"
         ? process.env.LIVE_SERVER
-        : "http://localhost:3000",
-    // origin: "http://localhost:3000",
+        : process.env.LOCAL_SERVER,
     credentials: true,
 }))
 
