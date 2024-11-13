@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(express.static("uploads"))
 app.use(cors({
-    origin: process.env.NODE_ENV === "production"
+    origin: process.env.NODE_ENV === "dev"
         ? process.env.LIVE_SERVER
         : process.env.LOCAL_SERVER,
     credentials: true,
