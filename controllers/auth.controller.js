@@ -108,9 +108,7 @@ exports.verifySuperAdminOTP = asyncHandler(async (req, res) => {
     }
     await SuperAdmin.findByIdAndUpdate(isFound._id, { otp: "" })
 
-    const token = jwt.sign({ userId: isFound._id },
-        process.env.JWT_KEY,
-        { expiresIn: process.env.JWT_EXPIRE })
+    const token = jwt.sign({ userId: isFound._id }, process.env.JWT_KEY, { expiresIn: process.env.JWT_EXPIRE })
 
     res.cookie("superAdmin", token, {
         httpOnly: true,
